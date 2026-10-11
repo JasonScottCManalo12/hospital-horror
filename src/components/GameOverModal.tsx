@@ -2,7 +2,9 @@ import React from 'react';
 import { Ghost } from '../types/horrorGame';
 import { RotateCcw, Skull } from 'lucide-react';
 import { GHOST_PROFILES } from '../services/ghostAI';
-import ghostImgSrc from '../assets/images/vengeful_spirit_1791720067076.jpg';
+import nurseImgSrc from '../assets/images/ghost_nurse_dolores_1791726545154.jpg';
+import javierImgSrc from '../assets/images/ghost_doctor_javier_1791726558407.jpg';
+import patientImgSrc from '../assets/images/vengeful_spirit_1791720067076.jpg';
 
 interface GameOverModalProps {
   killerGhost: Ghost | null;
@@ -19,6 +21,10 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
 }) => {
   const profile = killerGhost ? GHOST_PROFILES[killerGhost.type] : null;
 
+  let killerImg = patientImgSrc;
+  if (killerGhost?.type === 'dolores') killerImg = nurseImgSrc;
+  else if (killerGhost?.type === 'javier') killerImg = javierImgSrc;
+
   return (
     <div className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4 select-none">
       <div className="max-w-md w-full bg-[#120808] border border-red-900/60 rounded-xl p-6 sm:p-8 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
@@ -26,11 +32,11 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
         <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-red-600/20 blur-3xl rounded-full pointer-events-none" />
 
         {/* Ghost Portrait thumbnail */}
-        <div className="relative w-28 h-28 rounded-full border-2 border-red-700/80 overflow-hidden shadow-2xl mb-4">
+        <div className="relative w-32 h-32 rounded-full border-2 border-red-700/80 overflow-hidden shadow-2xl mb-4">
           <img
-            src={ghostImgSrc}
+            src={killerImg}
             alt="Vengeful Spirit"
-            className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition"
+            className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-300"
           />
         </div>
 
