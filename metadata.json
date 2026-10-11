@@ -1,0 +1,6 @@
+{
+  "name": "Takas sa San Lazaro - Abandoned Hospital Horror",
+  "description": "Isang nakakikilabot na first-person horror game kung saan kailangan mong maghanap ng mga nawawalang susi sa madidilim na pasilyo ng abandonadong ospital habang tinatakasan ang mga vengeful na kaluluwa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
